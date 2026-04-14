@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     name: Package app (Debian Trixie 64-bit)
-    runs-on: linux
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     container:
