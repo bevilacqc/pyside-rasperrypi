@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: pyside-rasperrypi-debian-trixie-x86_64
-          path: dist/pyside-rasperrypi
+          path: dist/
           if-no-files-found: error
 
       - name: Determine release tag
