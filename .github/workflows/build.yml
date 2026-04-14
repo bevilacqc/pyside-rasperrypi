@@ -27,6 +27,8 @@ jobs:
       - name: Update system dependencies
         run: |
           apt-get update
+          apt-get install \
+            binutils
       - name: Set up Python virtual environment
         run: |
           python3 -m venv .venv
