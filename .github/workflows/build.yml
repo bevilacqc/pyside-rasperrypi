@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Package app (Debian Trixie 64-bit)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     permissions:
       contents: write
     container:
