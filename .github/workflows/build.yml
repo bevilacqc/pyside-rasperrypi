@@ -1,4 +1,4 @@
-name: Build with PyInstaller on Debian Trixie
+name: Build with PyInstaller for Raspberry Pi 5 (arm64)
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Package app (Debian Trixie 64-bit)
+    name: Package app (Raspberry Pi OS arm64)
     runs-on: ubuntu-24.04-arm
     permissions:
       contents: write
@@ -38,12 +38,13 @@ jobs:
           .venv/bin/pyinstaller \
             --name pyside-rasperrypi \
             --onefile \
+            --target-arch aarch64 \
             main.py
 
       - name: Upload packaged executable as artifact
         uses: actions/upload-artifact@v7
         with:
-          name: pyside-rasperrypi-debian-trixie-x86_64
+          name: pyside-rasperrypi-arm64
           path: dist/pyside-rasperrypi
           if-no-files-found: error
 
