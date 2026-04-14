@@ -47,14 +47,13 @@ jobs:
             main.py
 
       - name: Upload packaged executable as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pyside-rasperrypi-debian-trixie-x86_64
           path: dist/pyside-rasperrypi
           if-no-files-found: error
 
       - name: Publish GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: dist/pyside-rasperrypi
