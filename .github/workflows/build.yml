@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: write
     container:
-      image: python:3.13-trixie
+      image: vascoguita/raspios:arm64
 
     steps:
       - name: Checkout repository
