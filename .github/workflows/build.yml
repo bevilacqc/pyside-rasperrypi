@@ -36,13 +36,14 @@ jobs:
       - name: Package application with PyInstaller
         run: |
           .venv/bin/pyinstaller \
+            --name pyside-rasperrypi \
             main.py
 
       - name: Upload packaged executable as artifact
         uses: actions/upload-artifact@v7
         with:
           name: pyside-rasperrypi-debian-trixie-x86_64
-          path: dist/
+          path: dist/pyside-rasperrypi
           if-no-files-found: error
 
       - name: Determine release tag
@@ -60,7 +61,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.release_tag.outputs.tag }}
-          files: dist/
+          files: dist/pyside-rasperrypi
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
