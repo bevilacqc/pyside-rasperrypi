@@ -60,7 +60,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.release_tag.outputs.tag }}
-          files: dist/pyside-rasperrypi
+          files: dist/
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
