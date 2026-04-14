@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   pull_request:
     branches:
       - main
@@ -14,7 +16,7 @@ jobs:
     name: Package app (Debian Trixie 64-bit)
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     container:
       image: debian:trixie
 
@@ -68,3 +70,12 @@ jobs:
           name: pyside-rasperrypi-debian-trixie-x86_64
           path: dist/pyside-rasperrypi
           if-no-files-found: error
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/pyside-rasperrypi
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
