@@ -27,7 +27,7 @@ jobs:
       - name: Update system dependencies
         run: |
           apt-get update
-          apt-get install \
+          apt-get install -y --no-install-recommends \
             binutils
       - name: Set up Python virtual environment
         run: |
