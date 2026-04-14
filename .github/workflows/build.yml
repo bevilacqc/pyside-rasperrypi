@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: write
     container:
-      image: python:3.13-slim-trixie
+      image: python:3.13-trixie
 
     steps:
       - name: Checkout repository
