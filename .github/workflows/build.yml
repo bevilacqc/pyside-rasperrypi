@@ -37,6 +37,7 @@ jobs:
         run: |
           .venv/bin/pyinstaller \
             --name pyside-rasperrypi \
+            --onefile \
             main.py
 
       - name: Upload packaged executable as artifact
@@ -61,7 +62,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.release_tag.outputs.tag }}
-          files: dist/pyside-rasperrypi/**/*
+          files: dist/pyside-rasperrypi
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
